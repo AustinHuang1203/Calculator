@@ -131,7 +131,6 @@ function eval1(){
 
 
 function eval2(){
-    console.log(calc);
     let originalmarker = 0;
     let marker1 = 0;
     let marker2 = 0;
@@ -159,12 +158,11 @@ function eval2(){
         if (x == (calc.length - 1)){
             if (marker1 == 0){
                 answer = answer + parseFloat(calc.slice(0,x+1));
-                console.log(answer);
             } 
             if (operation == "+"){
                 answer = answer + parseFloat(calc.slice(0,originalmarker)) + parseFloat(calc.slice(marker1+1,x+1));
             }
-            if (operation = "-"){
+            if (operation == "-"){
                 answer = answer + parseFloat(calc.slice(0,originalmarker)) - parseFloat(calc.slice(marker1+1,x+1));
             }
             display3.innerHTML = answer;
