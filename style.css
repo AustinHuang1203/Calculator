@@ -1,0 +1,53 @@
+
+/* flexboxes*/
+.calculatorbox{
+    display:flex;
+    border:10px solid;
+    border-color:black;
+    background-color:grey;
+    flex-wrap:wrap;
+    height:950px;
+    width:600px;
+    justify-content:space-evenly;
+}
+
+.display1{
+    display:flex;
+    justify-content:right;
+    background-color:lightblue;
+    height:150px;
+    width:580px;
+    margin-top:10px;
+}
+
+.button1{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:130px;
+    height:130px;
+    margin:10px;
+    background-color:black;
+    color:white;
+    font-size:40px
+}
+
+.button2{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:130px;
+    height:280px;
+    margin:10px;
+    background-color:black;
+    background-color:black;
+    color:white;
+    font-size:40px
+}
+
+.buttons6{
+    display:flex;
+    justify-content:left;
+    flex-wrap:wrap;
+    width:450px;
+}
