@@ -59,6 +59,9 @@ btn17.addEventListener("click",()=>{addnum(0)});
 const btn18 = document.getElementById("btn18");
 btn18.addEventListener("click",decimal);
 
+const btn19 = document.getElementById("btn19");
+btn19.addEventListener("click",eval2);
+
 
 
 //Display
@@ -67,8 +70,6 @@ const display3 = document.getElementById("display3");
 
 
 //variables
-let sum = 0;
-let answer = 0;
 let calc = "";
 
 
@@ -96,7 +97,7 @@ function delete1(){
 }
 
 function addnum(x){
-    calc = calc + "x";
+    calc = calc + `${x}`;
     display2.innerHTML += x;
 }
 
@@ -118,4 +119,73 @@ function modulo(){
 function decimal(){
     calc = calc + ".";
     display2.innerHTML += ".";
+}
+
+function eval1(){
+    try{display3.innerHTML = eval(calc);}
+    catch{display3.innerHTML = "Error!";}
+}
+
+
+//evaluate function
+
+
+function eval2(){
+    let originalmarker = 0;
+    let marker1 = 0;
+    let marker2 = 0;
+    let marker3 = 0;
+    let operation = "";
+    let answer = 0;
+    let breakit = 0;
+    let terminate = 0;
+    for (let x = 0; x<calc.length; x++){
+        if (terminate == 0){
+            if (calc[x] == "+" && marker1 == 0){
+                marker1 = x;
+                originalmarker = x;
+                operation = "+";
+                breakit = 1;
+                terminate = 1;
+            }
+            if (calc[x] == "-" && marker1 == 0){
+                marker1 = x;
+                originalmarker = x;
+                operation = "-";
+                breakit = 1;
+                terminate = 1;
+            };
+        }
+        if (x == (calc.length - 1)){
+            if (marker1 == 0){
+                answer += parseFloat(calc.slice(0,x+1));
+            }
+            if (operation == "+"){
+                answer = answer + parseFloat(calc.slice(0,originalmarker)) + parseFloat(calc.slice(marker1+1,x+1));
+            }
+            if (operation = "-"){
+                answer = answer + parseFloat(calc.slice(0,originalmarker)) - parseFloat(calc.slice(marker1+1,x+1));
+            }
+            display3.innerHTML = answer;
+            break;
+        }
+        if (breakit == 1){
+            breakit = 0;
+            continue;
+        }
+        if (marker1 != 0){
+            if (calc[x] == "+" || calc[x] == "-"){
+                if (operation == "+"){
+                    answer += parseFloat(calc.slice(marker1+1,x));
+                }
+                if (operation == "-"){
+                    answer -= parseFloat(calc.slice(marker1+1,x))
+                }
+                operation = calc[x];
+                marker2 = marker1 + 1;
+                marker1 = x;
+            }
+        }
+
+    }
 }
