@@ -92,7 +92,7 @@ function multiply(){
 }
 
 function delete1(){
-    calc.slice(0,-1);
+    calc = calc.slice(0,-1);
     display2.innerHTML = display2.innerHTML.slice(0,-1);
 }
 
@@ -131,10 +131,10 @@ function eval1(){
 
 
 function eval2(){
+    console.log(calc);
     let originalmarker = 0;
     let marker1 = 0;
     let marker2 = 0;
-    let marker3 = 0;
     let operation = "";
     let answer = 0;
     let breakit = 0;
@@ -158,8 +158,9 @@ function eval2(){
         }
         if (x == (calc.length - 1)){
             if (marker1 == 0){
-                answer += parseFloat(calc.slice(0,x+1));
-            }
+                answer = answer + parseFloat(calc.slice(0,x+1));
+                console.log(answer);
+            } 
             if (operation == "+"){
                 answer = answer + parseFloat(calc.slice(0,originalmarker)) + parseFloat(calc.slice(marker1+1,x+1));
             }
