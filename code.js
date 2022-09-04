@@ -137,25 +137,84 @@ function eval2(){
     let calcsave = calc;
     for (let x = 0; x<calc.length;x++){
         console.log(calc);
-        if (calc[x] == "*"){
-            for (let i = x+1; i<calc.length;i++){
-                if ( isNaN(calc[i]) ){
-                    let item1 = parseFloat(calc.substring(marker11,x));
-                    let item2 = parseFloat(calc.substring(x+1,i));
-                    let item3 = item1 * item2;
-                    calc = calc.slice(0,marker11) + item3 + calc.slice(i);
-                    console.log(calc);
-                }
-                else if ( i == calc.length-1 ){
-                    let item1 = parseFloat(calc.substring(marker11,x));
-                    let item2 = parseFloat(calc.substring(x+1,i+1));
-                    let item3 = item1 * item2;
-                    calc = calc.slice(0,marker11) + item3;
-                    console.log(marker11);
-                    console.log(calc);
-                }
+        
+
+        let func1 = () => {for (let i = x+1; i<calc.length;i++){
+            if ( isNaN(calc[i]) ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i));
+                let item3 = item1 * item2;
+                calc = calc.slice(0,marker11) + item3 + calc.slice(i);
+                x=0;
+                return;
             }
+            else if ( i == calc.length-1 ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i+1));
+                let item3 = item1 * item2;
+                calc = calc.slice(0,marker11) + item3;
+                console.log(marker11);
+                x=0;
+                return;
+            }
+        }}
+
+        let func2 = () => {for (let i = x+1; i<calc.length;i++){
+            if ( isNaN(calc[i]) ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i));
+                let item3 = item1 / item2;
+                calc = calc.slice(0,marker11) + item3 + calc.slice(i);
+                x=0;
+                return;
+            }
+            else if ( i == calc.length-1 ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i+1));
+                let item3 = item1 / item2;
+                calc = calc.slice(0,marker11) + item3;
+                console.log(marker11);
+                x=0;
+                return;
+            }
+        }}
+
+        let func3 = () => {for (let i = x+1; i<calc.length;i++){
+            if ( isNaN(calc[i]) ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i));
+                let item3 = item1 % item2;
+                calc = calc.slice(0,marker11) + item3 + calc.slice(i);
+                x=0;
+                return;
+            }
+            else if ( i == calc.length-1 ){
+                let item1 = parseFloat(calc.substring(marker11,x));
+                let item2 = parseFloat(calc.substring(x+1,i+1));
+                let item3 = item1 % item2;
+                calc = calc.slice(0,marker11) + item3;
+                console.log(marker11);
+                x=0;
+                return;
+            }
+        }}
+
+
+
+
+        if (calc[x] == "*"){
+            func1();
         }
+
+        if (calc[x] == "/"){
+            func2();
+        }
+
+        if (calc[x] == "%"){
+            func3();
+        }
+
+        
 
         if (calc[x] == "+" || calc[x] == "-"){
             marker11 = x+1;
