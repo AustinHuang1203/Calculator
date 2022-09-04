@@ -132,11 +132,8 @@ function eval1(){
 
 function eval2(){
     let marker11 = 0; // first number after operator
-    let marker22 = 0;
-    let operation1 = "";
     let calcsave = calc;
     for (let x = 0; x<calc.length;x++){
-        console.log(calc);
         
 
         let func1 = () => {for (let i = x+1; i<calc.length;i++){
@@ -153,7 +150,6 @@ function eval2(){
                 let item2 = parseFloat(calc.substring(x+1,i+1));
                 let item3 = item1 * item2;
                 calc = calc.slice(0,marker11) + item3;
-                console.log(marker11);
                 x=0;
                 return;
             }
@@ -173,8 +169,6 @@ function eval2(){
                 let item2 = parseFloat(calc.substring(x+1,i+1));
                 let item3 = item1 / item2;
                 calc = calc.slice(0,marker11) + item3;
-                console.log(marker11);
-                x=0;
                 return;
             }
         }}
@@ -193,7 +187,6 @@ function eval2(){
                 let item2 = parseFloat(calc.substring(x+1,i+1));
                 let item3 = item1 % item2;
                 calc = calc.slice(0,marker11) + item3;
-                console.log(marker11);
                 x=0;
                 return;
             }
@@ -228,7 +221,6 @@ function eval2(){
     // addition and subtraction
     let originalmarker = 0;
     let marker1 = 0;
-    let marker2 = 0;
     let operation = "";
     let answer = 0;
     let breakit = 0;
