@@ -252,6 +252,11 @@ function eval2(){
             if (operation == "-"){
                 answer = answer + parseFloat(calc.slice(0,originalmarker)) - parseFloat(calc.slice(marker1+1,x+1));
             }
+            if (answer == "NaN" || isNaN(calc[x])){
+                display3.innerHTML = "Error!";
+                calc = calcsave;
+                break;
+            }
             display3.innerHTML = answer;
             calc = calcsave;
             break;
