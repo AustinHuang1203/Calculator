@@ -131,6 +131,42 @@ function eval1(){
 
 
 function eval2(){
+    let marker11 = 0; // first number after operator
+    let marker22 = 0;
+    let operation1 = "";
+    let calcsave = calc;
+    for (let x = 0; x<calc.length;x++){
+        console.log(calc);
+        if (calc[x] == "*"){
+            for (let i = x+1; i<calc.length;i++){
+                if ( isNaN(calc[i]) ){
+                    let item1 = parseFloat(calc.substring(marker11,x));
+                    let item2 = parseFloat(calc.substring(x+1,i));
+                    let item3 = item1 * item2;
+                    calc = calc.slice(0,marker11) + item3 + calc.slice(i);
+                    console.log(calc);
+                }
+                else if ( i == calc.length-1 ){
+                    let item1 = parseFloat(calc.substring(marker11,x));
+                    let item2 = parseFloat(calc.substring(x+1,i+1));
+                    let item3 = item1 * item2;
+                    calc = calc.slice(0,marker11) + item3;
+                    console.log(marker11);
+                    console.log(calc);
+                }
+            }
+        }
+
+        if (calc[x] == "+" || calc[x] == "-"){
+            marker11 = x+1;
+        }
+
+    }
+
+
+
+
+    // addition and subtraction
     let originalmarker = 0;
     let marker1 = 0;
     let marker2 = 0;
@@ -166,6 +202,7 @@ function eval2(){
                 answer = answer + parseFloat(calc.slice(0,originalmarker)) - parseFloat(calc.slice(marker1+1,x+1));
             }
             display3.innerHTML = answer;
+            calc = calcsave;
             break;
         }
         if (breakit == 1){
