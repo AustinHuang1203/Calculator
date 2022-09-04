@@ -1,5 +1,38 @@
 
 /* flexboxes*/
+body{
+    background-color:aquamarine;
+}
+
+.title1{
+    display:flex;
+    justify-content: center;
+    font-size:80px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.font6{
+    font-size:35px;
+    color:rgb(121, 121, 241);
+    font-family:Times, Times New Roman, serif;
+    text-decoration:underline;
+}
+
+.credits2{
+    display:flex;
+    justify-content:center;
+    padding-top:20px;
+    padding-bottom:170px;
+    width:100%;
+}
+
+.calcbox1{
+    display:flex;
+    width:100%;
+    justify-content:center;
+}
+
 .calculatorbox{
     display:flex;
     border:10px solid;
@@ -28,7 +61,7 @@
     justify-content:right;
     width:100%;
     height:50%;
-    font-size:40px;
+    font-size:45px;
     padding-right:5px;
 }
 
@@ -37,7 +70,7 @@
     justify-content:right;
     width:100%;
     height:50%;
-    font-size:40px;
+    font-size:45px;
     padding-right:5px;
 }
 
